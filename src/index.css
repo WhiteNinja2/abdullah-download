@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-white transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Custom styles */
+.bg-gradient {
+  @apply bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Glowing effect */
+.glow {
+  @apply shadow-lg hover:shadow-xl transition-shadow duration-300;
+}
+
+.glow-green {
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
+}
+
+/* Animated background */
+.animated-bg {
+  background: linear-gradient(-45deg, #f7fafc, #edf2f7, #e2e8f0, #cbd5e0);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.dark .animated-bg {
+  background: linear-gradient(-45deg, #1a202c, #2d3748, #22543d, #1a4731);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Improved iPhone mockup */
+.iphone-mockup {
+  @apply relative w-64 h-128 mx-auto bg-black rounded-[3rem] overflow-hidden border-[14px] border-black;
+}
+
+.iphone-mockup::before {
+  content: '';
+  @apply absolute top-0 left-1/2 transform -translate-x-1/2 w-1/2 h-7 bg-black rounded-b-3xl z-10;
+}
+
+.iphone-mockup::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-800 rounded-full;
+}
+
+.iphone-screen {
+  @apply w-full h-full object-cover rounded-[2rem];
+}
+
+/* RTL support */
+.rtl {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Amiri', serif;
+}
+
+.rtl .ml-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+.rtl .mr-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+.rtl .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+.rtl .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Smooth water-like animation */
+@keyframes smoothRise {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-smoothRise {
+  animation: smoothRise 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* Enhanced styles */
+.nav-link {
+  @apply relative overflow-hidden;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-0.5 bg-green-500 transform scale-x-0 transition-transform duration-300 ease-in-out;
+}
+
+.nav-link:hover::after {
+  @apply transform scale-x-100;
+}
+
+.feature-card {
+  @apply relative overflow-hidden;
+}
+
+.feature-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 opacity-0 transition-opacity duration-300;
+}
+
+.feature-card:hover::before {
+  @apply opacity-20;
+}
